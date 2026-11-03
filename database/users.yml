@@ -1,0 +1,23 @@
+---
+- :id: 1
+  :login: Denys
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$tPiFjUgXl8tdToPHs0zel.S4S03yys22g3sYlp3THy9Jfr1imEi/."
+    version: 2a
+    cost: 12
+    salt: "$2a$12$tPiFjUgXl8tdToPHs0zel."
+    checksum: S4S03yys22g3sYlp3THy9Jfr1imEi/.
+- :id: 2
+  :login: Semen
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$Tk9CBgA9frEF6ldio.dLYu7YT.nmqjKoATUX8O5V/gN8p3Opy2aNC"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$Tk9CBgA9frEF6ldio.dLYu"
+    checksum: 7YT.nmqjKoATUX8O5V/gN8p3Opy2aNC
+- :login: igor
+  :password: vasya
+- :login: Igor
+  :password: vasya
+- :login: Igor
+  :password: Nevasya
