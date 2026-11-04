@@ -1,9 +1,5 @@
 ---
-- :name: fdg
-  :lot_description: dfg
-  :start_price: '950'
-  :id: 1
 - :name: Ps5
-  :lot_description: The best game console in the world
+  :lot_description: The best console
   :start_price: '25000'
-  :id: 2
+  :id: 1

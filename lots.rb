@@ -1,16 +1,14 @@
 require_relative 'database'
+require_relative 'index.rb'
 
-def create_lot
-  puts("Введіть ім'я лоту:")
-  lot_name = gets.chomp.strip
-  puts("Введіть опис лоту:")
-  lot_description = gets.chomp.strip
-  puts("Введіть стартові ціну лота у грн:")
-  start_price = gets.chomp.strip
-  new_lot = {name: lot_name, lot_description: lot_description, start_price: start_price, id: next_id("lots.yml")}
+def create_lot(lot_title, user_lot_description, user_lot_starter_price)
+  new_lot = {
+    name: lot_title, 
+    lot_description: user_lot_description, 
+    start_price: user_lot_starter_price, 
+    id: next_id("lots.yml")
+  }
   add_to_database("lots.yml", new_lot)
-  puts 'Ви успішно зареєструвались'
-
+  puts 'Ви успішно створили лот'
 end
 
-create_lot

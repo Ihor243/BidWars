@@ -13,3 +13,15 @@ def show_authenticated_menu(user)
   puts '2: Видалити лот'
   puts '4: Вийти'
 end
+
+def lot_name
+      puts("Введіть ім'я лоту:")
+end
+
+def lot_description
+    puts("Введіть опис лоту:")
+end
+
+def lot_starter_price
+    puts("Введіть стартові ціну лота у грн:")
+end
