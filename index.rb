@@ -31,7 +31,7 @@ def sign_in
     puts 'Користувача з таким логіном і паролем не знайдено'
   else
     puts 'Ви успішно увійшли!'
-    admin_lot_menu
+    parse("lots.yml")
   end
 end
 
@@ -43,7 +43,7 @@ def sign_up
   new_user = {login: login, password: password}
   add_to_database("users.yml", new_user)
   puts 'Ви успішно зареєструвались'
-  admin_lot_menu
+  
 end
 
 def admin_lot_menu 

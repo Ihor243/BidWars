@@ -3,3 +3,7 @@
   :lot_description: The best console
   :start_price: '25000'
   :id: 1
+- :name: fgd
+  :lot_description: fdg
+  :start_price: '544'
+  :id: 2

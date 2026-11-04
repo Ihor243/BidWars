@@ -32,6 +32,8 @@ def next_id(file_name)
   data.map { |record| record[:id] }.max + 1
 
 end
+
+
 # def user_id
 #   a = load_from_database("users.yml")
 #   new_user_id = {id: 1} && add_to_database('users.yml', new_user_id) if a.empty?
