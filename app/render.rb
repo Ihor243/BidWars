@@ -1,5 +1,5 @@
 def show_guest_menu
-  puts 'Вітаю вас у нашій бібліотеці!'
+  puts 'Вітаємо вас на нашому аукціоні'
   puts 'Оберіть дію:'
   puts '1: Зареєструватися'
   puts '2: Увійти'
@@ -9,12 +9,7 @@ end
 def show_authenticated_menu(user)
   puts "Вітаю, #{user}"
   puts 'Оберіть дію:'
-  puts '1: Додати книгу'
-  puts '2: Додати жанр'
-  puts '3: Додати автора'
+  puts '1: Створити лот'
+  puts '2: Видалити лот'
   puts '4: Вийти'
-end
-
-def show_incorrect_choice
-  puts 'You entered unexpected number! Please select valid!'
 end

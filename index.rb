@@ -41,11 +41,7 @@ def sign_up
   puts 'Придумайте пароль:'
   password = gets.chomp.strip
   new_user = {login: login, password: password}
-  file_path = file_path_for('users.yml')
-  File.write(file_path, YAML.dump([])) unless File.exist?(file_path)
-  records = load_from_database('users.yml')
-  records.push(new_user)
-  File.write(file_path, records.to_yaml)
+  add_to_database("users.yml", new_user)
   puts 'Ви успішно зареєструвались'
 end
 
