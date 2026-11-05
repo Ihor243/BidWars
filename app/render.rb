@@ -48,3 +48,10 @@ end
 def lot_starter_price
     puts("Введіть стартові ціну лота у грн:")
 end
+
+def show_list_of_lots
+  puts("Введіть Id лоту:")
+end
+
+
+

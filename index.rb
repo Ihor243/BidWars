@@ -1,13 +1,13 @@
 require_relative 'app/render'
 require_relative 'database'
 require_relative 'lots'
+require_relative 'admin_menu'
+require_relative 'logic_render'
 require 'i18n'
-I18n.load_path += Dir[File.expand_path("config/locales") + "/*.yml"]
-I18n.default_locale = :en # (note that `en` is already the default!)
-
+require_relative 'i18n_config'
 def run
-  show_guest_menu
   puts I18n.t("test")
+  show_guest_menu
 
   user_input = gets.chomp.strip
 
@@ -72,6 +72,7 @@ def sign_in_admin
     puts 'Ви успішно увійшли!'
   end
 show_admin_menu(login)
+admin_menu()
 
 end
 
