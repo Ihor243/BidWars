@@ -3,14 +3,15 @@ def show_guest_menu
   puts 'Оберіть дію:'
   puts '1: Зареєструватися'
   puts '2: Увійти'
-  puts '3: Вийти'
+  puts '3: Увійти як адміністратор'
+  puts '4: Вийти'
 end
 
 def show_admin_menu(user)
   puts "Вітаю, #{user}"
   puts 'Оберіть дію:'
   puts '1: Створити лот'
-  puts '2: переглянути список лотів'
+  puts '2: Переглянути список лотів'
   puts '3: Видалити лот'
   puts '4: Вийти'
 end
@@ -23,6 +24,16 @@ def show_user_menu(user)
   puts '3: Мої ставки'
   puts '4: Вийти'
 end
+
+def show_open_lots
+puts "Лот № #{lot_id}, #{lot_name}"
+puts "#{lot_description}"
+puts "Остання ставка: #{lot_price} грн"
+puts 'Оберіть дію:'
+puts '1: Поставити'
+puts '2: Далі'
+puts '3: Назад'
+puts '4: Вийти'
 
 def lot_name
       puts("Введіть ім'я лоту:")
