@@ -53,5 +53,8 @@ def show_list_of_lots
   puts("Введіть Id лоту:")
 end
 
+def show_incorrect_choice
+  puts("Перевірте що ви ввели")
+end
 
 
