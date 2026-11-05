@@ -2,10 +2,10 @@
 - :id: 1
   :login: Semen
   :password: !ruby/string:BCrypt::Password
-    str: "$2a$12$aO5N5FEba4CzrghOexKJQu7Pm8h3UJzU79Ts3vwfvHq0M.m0.8Hp."
+    str: "$2a$12$LkAXL0KhwImbYH8/UIcevemEKObRXY1mABvgvoQpZ0145cVkfol1K"
     version: 2a
     cost: 12
-    salt: "$2a$12$aO5N5FEba4CzrghOexKJQu"
-    checksum: 7Pm8h3UJzU79Ts3vwfvHq0M.m0.8Hp.
+    salt: "$2a$12$LkAXL0KhwImbYH8/UIceve"
+    checksum: mEKObRXY1mABvgvoQpZ0145cVkfol1K
   :phone_number: 380500738437
   :role: admin
