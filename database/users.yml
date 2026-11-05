@@ -9,5 +9,10 @@
   :password: dfg
 - :login: igor
   :password: igorr
+<<<<<<< HEAD
 - :login: igorgir
   :password: igorgir
+=======
+- :login: Pidor
+  :password: '14886742'
+>>>>>>> fe69983b77899bc7636853dd4f4556ac55deea8d
