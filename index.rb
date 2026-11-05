@@ -1,8 +1,12 @@
 require_relative 'app/render'
 require_relative 'database'
 require_relative 'lots'
+require 'i18n'
+I18n.load_path += Dir[File.expand_path("config/locales") + "/*.yml"]
+I18n.default_locale = :en # (note that `en` is already the default!)
 def run
   show_guest_menu
+  puts I18n.t("test")
 
   user_input = gets.chomp.strip
 
@@ -10,6 +14,9 @@ def run
   when '1' then sign_up
   when '2' then sign_in
   when '3' then exit
+  when '4' then 
+    I18n.locale = 'ua'
+    run
   else
     show_incorrect_choice
     run
@@ -56,3 +63,4 @@ def admin_lot_menu
   create_lot(lot_title, user_lot_description, user_lot_starter_price)
 end
 run
+

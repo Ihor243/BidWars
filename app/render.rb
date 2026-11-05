@@ -4,6 +4,7 @@ def show_guest_menu
   puts '1: Зареєструватися'
   puts '2: Увійти'
   puts '3: Вийти'
+  puts("Змінити мову на українську")
 end
 
 def show_admin_menu(user)
