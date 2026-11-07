@@ -3,10 +3,8 @@ def show_guest_menu
   puts 'Оберіть дію:'
   puts '1: Зареєструватися'
   puts '2: Увійти'
-  puts '3: Увійти як адміністратор'
-  puts("4: Змінити мову на українську")
-  puts '5: Вийти'
-
+  puts('3: Змінити мову на українську')
+  puts '4: Вийти'
 end
 
 def show_admin_menu(user)
@@ -28,33 +26,40 @@ def show_user_menu(user)
 end
 
 def show_open_lots
-puts "Лот № #{lot_id}, #{lot_name}"
-puts "#{lot_description}"
-puts "Остання ставка: #{lot_price} грн"
-puts 'Оберіть дію:'
-puts '1: Поставити'
-puts '2: Далі'
-puts '3: Назад'
-puts '4: Вийти'
+  puts "Лот № #{lot_id}, #{lot_name}"
+  puts "#{lot_description}"
+  puts "Остання ставка: #{lot_price} грн"
+  puts 'Оберіть дію:'
+  puts '1: Поставити'
+  puts '2: Далі'
+  puts '3: Назад'
+  puts '4: Вийти'
 end
+
 def lot_name
-      puts("Введіть ім'я лоту:")
+  puts("Введіть ім'я лоту:")
 end
 
 def lot_description
-    puts("Введіть опис лоту:")
+  puts('Введіть опис лоту:')
 end
 
 def lot_starter_price
-    puts("Введіть стартові ціну лота у грн:")
+  puts('Введіть стартові ціну лота у грн:')
 end
 
 def show_list_of_lots
-  puts("Введіть Id лоту:")
+  puts('Введіть Id лоту:')
 end
 
 def show_incorrect_choice
-  puts("Перевірте що ви ввели")
+  puts('Перевірте що ви ввели')
 end
 
+def success_created_lot
+  puts 'Ви успішно створили лот'
+end
 
+def ask_admin_delete
+      puts("Введіть Id лоту який хочете видалити:")
+end
