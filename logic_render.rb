@@ -1,22 +1,30 @@
-
-
-def render_search_by_id(lot)
+def render_search_by_id(searched_id)
+  lot = search_by_id('lots.yml', searched_id)
   if lot.nil? || lot.empty?
-    puts("Такого лота немає")
+    puts('Такого лота немає')
   else
-    puts("Лот знайдено:")
+    puts('Лот знайдено:')
     puts "Назва: #{lot[:name]}"
     puts "Опис: #{lot[:lot_description]}"
     puts "Ціна: #{lot[:start_price]}"
   end
 end
 
-def admin_lot_menu 
-  lot_name
-  lot_title = gets.chomp.strip
-  lot_description
-  user_lot_description = gets.chomp.strip
-  lot_starter_price
-  user_lot_starter_price = gets.chomp.strip
-  create_lot(lot_title, user_lot_description, user_lot_starter_price)
+
+def show_parse
+    puts('----------------------------')
+    puts("Назва лоту: #{lot[:name]}")
+    puts("Короткий опис лоту: #{lot[:lot_description]}")
+    puts("Стартова ціна лоту: #{lot[:start_price]}")
+    # puts("Переможець: #{[:winner]}")
+    puts('Не знайшли такий лот') if lot_parse.empty? || lot_parse.nil?
+end
+
+def show_delete(searched_id)
+    lot = search_by_id('lots.yml', searched_id)
+  if lot.nil? || lot.empty?
+    puts('Такого лота немає')
+  else
+       puts "Лот з Id: #{lot[:id]}, Успішно видалено"
+  end
 end

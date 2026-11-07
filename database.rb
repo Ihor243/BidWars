@@ -29,8 +29,7 @@ def file_path_for(file_name) = "database/#{file_name}"
 def next_id(file_name)
   data = load_from_database(file_name)
   return 1 if data.empty?  
-  data.map { |record| record[:id] }.max + 1
-
+  data.max_by { |record| record[:id] } + 1
 end
 
 
