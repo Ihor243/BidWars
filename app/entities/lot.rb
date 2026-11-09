@@ -14,6 +14,8 @@ def create_lot(lot_title, user_lot_description, user_lot_starter_price)
     name: lot_title,
     lot_description: user_lot_description,
     start_price: user_lot_starter_price,
+    current_price: user_lot_starter_price,
+    winner_login: nil,
     id: next_id('lots.yml')
   }
   add_to_database('lots.yml', new_lot)

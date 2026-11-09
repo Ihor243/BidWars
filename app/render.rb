@@ -39,7 +39,7 @@ end
 def lot_name
   puts("Введіть ім'я лоту:")
 end
-
+                                                                                               
 def lot_description
   puts('Введіть опис лоту:')
 end
