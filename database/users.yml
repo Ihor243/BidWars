@@ -9,3 +9,11 @@
     checksum: nT4RVMgh.VjaA4x8WZw6IET7zZ2c9UG
   :phone_number: 380500738437
   :role: admin
+- :login: Igor
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$L0aZxAZ.85WH0bUfgIaWr.HrofbOaZ3b3Xf3oNT1IOPTowvZ61L92"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$L0aZxAZ.85WH0bUfgIaWr."
+    checksum: HrofbOaZ3b3Xf3oNT1IOPTowvZ61L92
+  :id: 2

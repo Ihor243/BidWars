@@ -6,6 +6,8 @@ require_relative 'auth'
 require_relative 'app/entities/lot'
 require_relative 'admin_menu'
 require_relative 'logic_render'
+require_relative 'user_menu'
+require_relative 'app/entities/user'
 
 
 def run

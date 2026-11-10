@@ -2,7 +2,11 @@ def user_menu(login)
   loop do
     user_input = gets.chomp.strip
     case user_input
-    when '1' then create_bid(user_input, login)
+    when '1' then 
+      show_lot = load_lots('lots.yml') 
+      show_lot.each do |lot|
+      show_parse(lot)
+      end
     when '2' then
       show_list_of_lots
       searched_id = gets.chomp.strip.to_i

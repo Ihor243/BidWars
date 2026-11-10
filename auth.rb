@@ -31,6 +31,7 @@ def sign_in
     admin_menu
     else
        show_user_menu(login)
+       user_menu(login)
     end
 end
 

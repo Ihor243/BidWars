@@ -31,3 +31,8 @@ def next_id(file_name)
   return 1 if data.empty?  
   data.max_by { |record| record[:id]} [:id] +1 
 end
+
+def save_all(file_name, data)
+  file_path = file_path_for(file_name)
+  File.write(file_path, data.to_yaml)
+end

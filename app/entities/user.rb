@@ -1,20 +1,26 @@
-def create_bid(user_bid, searched_id, login) 
+def create_bid(user_bid, login, searched_id) 
   temp = load_from_database('lots.yml')
   temp_lot = temp.find { |lot| lot[:id] == searched_id }
 
   if temp_lot
-  write_create_bid(user_bid, login, temp_lot, temp)
+  user_id = currents_user_id(login)
+  write_create_bid(user_bid, login, temp_lot, temp, user_id)
 end
 end
 
-def write_create_bid(user_bid, login, temp_lot, temp)
+def write_create_bid(user_bid, login,temp_lot, temp, user_id )
   if user_bid > temp_lot[:current_price]
     temp_lot[:current_price] = user_bid
+    temp_lot[:winner_id] = user_id
     temp_lot[:winner_login] = login
-    file_path = file_path_for('lots.yml')
-    File.write(file_path, temp.to_yaml)
+    save_all('lots.yml', temp)
   end
 end
 
-#Що робить конретно цей метод? Він бере перевіряє чи ставка юзера більша за ставку початкову і якщо так то
-#вона записує нову ціну та айді і логін цього нового юзера до bids.ymllogin
+def currents_user_id(login)
+  temp_user_id = load_from_database('users.yml')
+  user = temp_user_id.find{ |user| user[:login] == login}
+  if user
+    user[:id]
+  end
+end

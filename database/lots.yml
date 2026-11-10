@@ -5,3 +5,10 @@
   :current_price:
   :winner_login:
   :id: 1
+- :name: llee
+  :lot_description: gfdgb
+  :start_price: '950'
+  :current_price: '950'
+  :winner_login:
+  :winner_id:
+  :id: 2
