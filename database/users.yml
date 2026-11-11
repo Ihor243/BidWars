@@ -2,18 +2,18 @@
 - :id: 1
   :login: Semen
   :password: !ruby/string:BCrypt::Password
-    str: "$2a$12$M64UPxSy3YwSf3TPprMQfunT4RVMgh.VjaA4x8WZw6IET7zZ2c9UG"
+    str: "$2a$12$3.2oFbOaBN6r7nbJCjp.8uzuurwW1flOGHQO/YkIx2f9UhTUkZ92C"
     version: 2a
     cost: 12
-    salt: "$2a$12$M64UPxSy3YwSf3TPprMQfu"
-    checksum: nT4RVMgh.VjaA4x8WZw6IET7zZ2c9UG
+    salt: "$2a$12$3.2oFbOaBN6r7nbJCjp.8u"
+    checksum: zuurwW1flOGHQO/YkIx2f9UhTUkZ92C
   :phone_number: 380500738437
   :role: admin
 - :login: Igor
   :password: !ruby/string:BCrypt::Password
-    str: "$2a$12$L0aZxAZ.85WH0bUfgIaWr.HrofbOaZ3b3Xf3oNT1IOPTowvZ61L92"
+    str: "$2a$12$o8fku8xQ0GybH4m/Qst74ux8b2/UeELX2WMC/lFWAiGbQxwsEZPRa"
     version: 2a
     cost: 12
-    salt: "$2a$12$L0aZxAZ.85WH0bUfgIaWr."
-    checksum: HrofbOaZ3b3Xf3oNT1IOPTowvZ61L92
+    salt: "$2a$12$o8fku8xQ0GybH4m/Qst74u"
+    checksum: x8b2/UeELX2WMC/lFWAiGbQxwsEZPRa
   :id: 2

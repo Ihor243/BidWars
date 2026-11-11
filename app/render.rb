@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def show_guest_menu
   puts 'Вітаємо вас на нашому аукціоні'
   puts 'Оберіть дію:'
@@ -27,7 +29,7 @@ end
 
 def show_open_lots
   puts "Лот № #{lot_id}, #{lot_name}"
-  puts "#{lot_description}"
+  puts lot_description
   puts "Остання ставка: #{lot_price} грн"
   puts 'Оберіть дію:'
   puts '1: Поставити'
@@ -39,7 +41,7 @@ end
 def lot_name
   puts("Введіть ім'я лоту:")
 end
-                                                                                               
+
 def lot_description
   puts('Введіть опис лоту:')
 end
@@ -61,5 +63,5 @@ def success_created_lot
 end
 
 def ask_admin_delete
-      puts("Введіть Id лоту який хочете видалити:")
+  puts('Введіть Id лоту який хочете видалити:')
 end

@@ -1,12 +1,13 @@
 ---
 - :name: Ps5
-  :lot_description: The best console for GTA V1
-  :start_price: '35000'
-  :current_price:
+  :lot_description: Kfkds
+  :start_price: '950'
+  :current_price: '950'
   :winner_login:
+  :winner_id:
   :id: 1
-- :name: llee
-  :lot_description: gfdgb
+- :name: dsf
+  :lot_description: gfd
   :start_price: '950'
   :current_price: '950'
   :winner_login:

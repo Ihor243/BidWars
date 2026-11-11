@@ -1,11 +1,13 @@
+# frozen_string_literal: true
 
 def sign_up
   puts 'Придумайте логін'
   login = gets.chomp.strip
   puts 'Придумайте пароль:'
   password = gets.chomp.strip
-  new_user = { login: login, password: secure_password(password), id: next_id('users.yml')}
+  new_user = { login: login, password: secure_password(password)} 
   add_to_database('users.yml', new_user)
+  current_id = user[:id]
   puts 'Ви успішно зареєструвались'
 end
 
@@ -17,22 +19,23 @@ def sign_in
   password = gets.chomp.strip
 
   users = load_from_database('users.yml')
-  user = users.find { |user| user[:login] == login && user[:password] == password }
-  
+  user = users.find { |user| user[:login] == login && user[:password] == password } 
+
   if user.nil?
     puts 'Користувача з таким логіном і паролем не знайдено'
   else
+    current_id = user[:id]
     puts 'Ви успішно увійшли!'
   end
 
-   if user[:role] == 'admin' 
-    sign_in_admin(login, password) 
+  if user[:role] == 'admin'
+    sign_in_admin(login, password)
     show_admin_menu(login)
     admin_menu
-    else
-       show_user_menu(login)
-       user_menu(login)
-    end
+  else
+    show_user_menu(login)
+    user_menu(login)
+  end
 end
 
 def sign_in_admin(login, password)
@@ -45,5 +48,3 @@ def sign_in_admin(login, password)
     puts 'Ви успішно увійшли!'
   end
 end
-
-

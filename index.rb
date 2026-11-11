@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'i18n'
 require_relative 'config_files/i18n'
 require_relative 'database'
@@ -7,11 +9,9 @@ require_relative 'app/entities/lot'
 require_relative 'admin_menu'
 require_relative 'logic_render'
 require_relative 'user_menu'
-require_relative 'app/entities/user'
-
+require_relative 'app/entities/Bid'
 
 def run
-
   show_guest_menu
 
   user_input = gets.chomp.strip
@@ -28,5 +28,4 @@ def run
   end
 end
 
-
-  run
+run
