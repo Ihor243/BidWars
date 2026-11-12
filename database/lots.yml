@@ -1,1 +1,15 @@
---- []
+---
+- :name: dsfg
+  :lot_description: dsfdsf
+  :start_price: '960'
+  :current_price: '960'
+  :winner_id:
+  :status: closed
+  :id: 1
+- :name: dgfdg
+  :lot_description: bfbf
+  :start_price: '45'
+  :current_price: '45'
+  :winner_id:
+  :status: closed
+  :id: 2

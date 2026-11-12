@@ -1,29 +1,27 @@
 ---
-- :login: d
-  :password: !ruby/string:BCrypt::Password
-    str: "$2a$12$QWK1T4Nn0eNuoK7UbEujs.yGTBQjFMID7D2Pm87Bt1r3QGlOLU5jS"
-    version: 2a
-    cost: 12
-    salt: "$2a$12$QWK1T4Nn0eNuoK7UbEujs."
-    checksum: yGTBQjFMID7D2Pm87Bt1r3QGlOLU5jS
-  :id: 1
 - :id: 1
   :login: Semen
   :password: !ruby/string:BCrypt::Password
-    str: "$2a$12$oxL4LQ2kEYZNNqFO.j5eFuMVDVuhO/p.6TMBDHBhcIJKPfcIIiNDq"
+    str: "$2a$12$3.2oFbOaBN6r7nbJCjp.8uzuurwW1flOGHQO/YkIx2f9UhTUkZ92C"
     version: 2a
     cost: 12
-    salt: "$2a$12$oxL4LQ2kEYZNNqFO.j5eFu"
-    checksum: MVDVuhO/p.6TMBDHBhcIJKPfcIIiNDq
+    salt: "$2a$12$3.2oFbOaBN6r7nbJCjp.8u"
+    checksum: zuurwW1flOGHQO/YkIx2f9UhTUkZ92C
   :phone_number: 380500738437
   :role: admin
-- :id: 1
-  :login: Semen
+- :login: Igor
   :password: !ruby/string:BCrypt::Password
-    str: "$2a$12$kB6q4vRjDwID9jcM.nfdGeFKh2mzD/BxyG7VECrEVgUuwC4kNYycm"
+    str: "$2a$12$o8fku8xQ0GybH4m/Qst74ux8b2/UeELX2WMC/lFWAiGbQxwsEZPRa"
     version: 2a
     cost: 12
-    salt: "$2a$12$kB6q4vRjDwID9jcM.nfdGe"
-    checksum: FKh2mzD/BxyG7VECrEVgUuwC4kNYycm
-  :phone_number: 380500738437
-  :role: admin
+    salt: "$2a$12$o8fku8xQ0GybH4m/Qst74u"
+    checksum: x8b2/UeELX2WMC/lFWAiGbQxwsEZPRa
+  :id: 2
+- :login: Igor
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$4FcTujv7tWwRmA5jmAG4M.5aWEkzwI5GeSFRsW0GP0JwkODuPve5a"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$4FcTujv7tWwRmA5jmAG4M."
+    checksum: 5aWEkzwI5GeSFRsW0GP0JwkODuPve5a
+  :id: 3
