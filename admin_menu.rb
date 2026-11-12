@@ -8,7 +8,8 @@ def admin_menu(user)
     when '1' then admin_create_lot_menu
     when '2' then admin_show_list_of_lots
     when '3' then admin_delete_lot_menu
-    when '4' then exit
+    when '4' then admin_close_lot_menu
+    when '5' then exit
     end
   end
 end
@@ -37,4 +38,11 @@ def admin_delete_lot_menu
   searched_id = gets.chomp.strip.to_i
   delete_lot(searched_id)
   show_lot_deleted(searched_id)
+end
+
+def admin_close_lot_menu
+  ask_admin_close
+  searched_id = gets.chomp.strip.to_i
+  close_lot(searched_id)
+  render_close_lot(searched_id)
 end

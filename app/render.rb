@@ -15,7 +15,9 @@ def show_admin_menu(user)
   puts '1: Створити лот'
   puts '2: Переглянути список лотів'
   puts '3: Видалити лот'
-  puts '4: Вийти'
+  puts '4: закрити лот'
+  puts '5: вийти'
+
 end
 
 def show_user_menu(user)
@@ -64,4 +66,8 @@ end
 
 def ask_admin_delete
   puts('Введіть Id лоту який хочете видалити:')
+end
+
+def ask_admin_close
+  puts('Введіть Id лоту який хочете закрити:')
 end

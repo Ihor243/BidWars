@@ -42,7 +42,13 @@ end
 
 def render_lots(lots)
   lots.each do |lot|
+  if lot[:status] == 'active'
     puts('----------------------------')
     render_lot(lot)
   end
+  end
+end
+
+def render_close_lot(searched_id)
+    puts "Лот з Id: #{searched_id}, Успішно закрито"
 end
