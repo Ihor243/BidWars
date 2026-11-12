@@ -38,15 +38,15 @@ def show_open_lots
   puts '4: Вийти'
 end
 
-def lot_name
+def render_lot_name
   puts("Введіть ім'я лоту:")
 end
 
-def lot_description
+def render_lot_description
   puts('Введіть опис лоту:')
 end
 
-def lot_starter_price
+def render_lot_starter_price
   puts('Введіть стартові ціну лота у грн:')
 end
 

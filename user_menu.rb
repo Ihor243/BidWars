@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-def user_menu(_login)
+def user_menu(_user)
   loop do
+    puts('Вітаю, виберіть дію')
     user_input = gets.chomp.strip
     case user_input
     when '1'

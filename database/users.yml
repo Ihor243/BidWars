@@ -17,3 +17,11 @@
     salt: "$2a$12$o8fku8xQ0GybH4m/Qst74u"
     checksum: x8b2/UeELX2WMC/lFWAiGbQxwsEZPRa
   :id: 2
+- :login: Igor
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$4FcTujv7tWwRmA5jmAG4M.5aWEkzwI5GeSFRsW0GP0JwkODuPve5a"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$4FcTujv7tWwRmA5jmAG4M."
+    checksum: 5aWEkzwI5GeSFRsW0GP0JwkODuPve5a
+  :id: 3

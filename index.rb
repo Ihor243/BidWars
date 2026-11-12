@@ -1,30 +1,26 @@
 # frozen_string_literal: true
 
-require 'i18n'
-require_relative 'config_files/i18n'
+require_relative 'config/i18n'
 require_relative 'database'
-require_relative 'app/render'
-require_relative 'auth'
+
+require_relative 'app/entities/bid'
+require_relative 'app/entities/user'
 require_relative 'app/entities/lot'
+
+require_relative 'guest_menu'
 require_relative 'admin_menu'
-require_relative 'logic_render'
 require_relative 'user_menu'
-require_relative 'app/entities/Bid'
 
-def run
-  show_guest_menu
+require_relative 'logic_render'
+require_relative 'app/render'
 
-  user_input = gets.chomp.strip
-
-  case user_input
-  when '1' then sign_up
-  when '2' then sign_in
-  when '3' then I18n.locale = 'ua'
-                run
-  when '4' then exit
+def run(current_user: nil)
+  if current_user.nil?
+    guest_menu
+  elsif current_user[:role] == 'admin'
+    admin_menu(current_user)
   else
-    show_incorrect_choice
-    run
+    user_menu(current_user)
   end
 end
 

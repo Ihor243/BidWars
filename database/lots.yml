@@ -1,15 +1,7 @@
 ---
-- :name: Ps5
-  :lot_description: Kfkds
+- :name: sad
+  :lot_description: sdfs
   :start_price: '950'
   :current_price: '950'
-  :winner_login:
   :winner_id:
   :id: 1
-- :name: dsf
-  :lot_description: gfd
-  :start_price: '950'
-  :current_price: '950'
-  :winner_login:
-  :winner_id:
-  :id: 2
