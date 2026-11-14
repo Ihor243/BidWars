@@ -43,6 +43,8 @@ end
 def admin_close_lot_menu
   ask_admin_close
   searched_id = gets.chomp.strip.to_i
-  close_lot(searched_id)
+  close_lot_status(searched_id)
   render_close_lot(searched_id)
+  closed_lot_statistic(searched_id)
+  show_closed_lot_statistic(closed_lot_statistic(searched_id))
 end

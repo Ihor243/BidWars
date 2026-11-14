@@ -28,7 +28,8 @@ end
 
 def show_create_bid(temp, user_bid)
   puts('Ставок ще немає') if temp.nil? || temp.empty?
-  return unless user_bid <= temp_lot[:current_price]
+  return unless user_bid <= temp[:current_price]
+
   puts('Перевірте вашу ставку')
 end
 
@@ -41,15 +42,64 @@ end
 
 def render_lots(lots)
   lots.each do |lot|
-  if lot[:status] == 'active'
-    puts('----------------------------')
-    render_lot(lot)
-  end
+    if lot[:status] == 'active'
+      puts('----------------------------')
+      render_lot(lot)
+    end
   end
 end
 
 def render_close_lot(searched_id)
-    puts "Лот з Id: #{searched_id}, Успішно закрито"
+  puts "Лот з Id: #{searched_id}, Успішно закрито"
 end
 
+def show_closed_lot_statistic(statistic_hash)
+  puts("Остання ціна: #{statistic_hash[:current_price]}")
+  puts("Усього ставок: #{statistic_hash[:total_bids_count]}")
+  if statistic_hash[:winner_id]
+    puts("Переможець юзер з ID: #{statistic_hash[:winner_id]}")
+  else
+    puts('Ніхто не ставив на цей лот')
+  end
+end
 
+def show_bid_history(user_id)
+  history = get_user_bid_history(user_id)
+
+  if history.empty?
+    puts 'Історія ставок порожня.'
+    return
+  end
+
+  current_page = 0
+
+  loop do
+    bid = history[current_page]
+
+    puts "========== ІСТОРІЯ СТАВОК =========="
+    puts "ID лота: #{bid[:id]}"
+    puts "Назва: #{bid[:name]}"
+    puts "Опис: #{bid[:description]}"
+    puts "Ваша ставка: #{bid[:current_price]}"
+    puts "Ви лідер: #{bid[:is_leader] ? 'Так' : 'Ні'}"
+    puts "Ставка #{current_page + 1} з #{history.length}"
+    puts "===================================="
+
+    puts '1. Далі'
+    puts '2. Назад'
+    puts '3. Вийти'
+
+    choice = gets.chomp.to_i
+
+    case choice
+    when 1
+      current_page += 1 if current_page < history.length - 1
+    when 2
+      current_page -= 1 if current_page > 0
+    when 3
+      break
+    else
+      puts 'Невірний вибір!'
+    end
+  end
+end
