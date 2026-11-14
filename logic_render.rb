@@ -26,10 +26,9 @@ def show_lot_deleted(searched_id)
   puts "Лот з Id: #{searched_id}, Успішно видалено"
 end
 
-def show_create_bid(temp, user_bid, temp_lot)
+def show_create_bid(temp, user_bid)
   puts('Ставок ще немає') if temp.nil? || temp.empty?
   return unless user_bid <= temp_lot[:current_price]
-
   puts('Перевірте вашу ставку')
 end
 
@@ -52,3 +51,5 @@ end
 def render_close_lot(searched_id)
     puts "Лот з Id: #{searched_id}, Успішно закрито"
 end
+
+
