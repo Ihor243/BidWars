@@ -87,3 +87,44 @@ end
 def show_invalid_lot_id
   puts("Такого лота немає")
 end
+
+def show_bid_history(user_id)
+  history = get_user_bid_history(user_id)
+
+  if history.empty?
+    puts 'Історія ставок порожня.'
+    return
+  end
+
+  current_page = 0
+
+  loop do
+    bid = history[current_page]
+
+    puts "========== ІСТОРІЯ СТАВОК =========="
+    puts "ID лота: #{bid[:id]}"
+    puts "Назва: #{bid[:name]}"
+    puts "Опис: #{bid[:description]}"
+    puts "Ваша ставка: #{bid[:current_price]}"
+    puts "Ви лідер: #{bid[:is_leader] ? 'Так' : 'Ні'}"
+    puts "Ставка #{current_page + 1} з #{history.length}"
+    puts "===================================="
+
+    puts '1. Далі'
+    puts '2. Назад'
+    puts '3. Вийти'
+
+    choice = gets.chomp.to_i
+
+    case choice
+    when 1
+      current_page += 1 if current_page < history.length - 1
+    when 2
+      current_page -= 1 if current_page > 0
+    when 3
+      break
+    else
+      puts 'Невірний вибір!'
+    end
+  end
+end

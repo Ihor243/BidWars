@@ -27,3 +27,23 @@ def max_bids_price(bids, lot)
   max_bid.nil? ? lot[:start_price] : max_bid[:current_price]
 end
 
+def find_bids_by_user_id(user_id)
+  load_bids.select { |bid| bid[:bidder_id] == user_id }
+end
+
+def get_user_bid_history(user_id)
+  bids = find_bids_by_user_id(user_id)
+
+  bids.map do |bid|
+    lot = find_lot_by_id(bid[:lot_id])
+    next unless lot
+
+    {
+      id: lot[:id],
+      name: lot[:name],
+      description: lot[:lot_description],
+      current_price: bid[:current_price],
+      is_leader: lot[:winner_id] == user_id
+    }
+  end.compact
+end
