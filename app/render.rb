@@ -21,6 +21,14 @@ def show_admin_menu(user)
 end
 
 def show_user_menu(user)
+  puts "Вітаю, #{user}"
+  puts 'Оберіть дію:'
+  puts '1: Зробити ставку'
+  puts '2: Переглянути статистику'
+  puts '3: вийти'
+end
+
+def show_user_menu(user)
   puts "Вітаю, #{user}!"
   puts 'Оберіть дію:'
   puts '1: Переглянути відкриті лоти'
@@ -70,4 +78,12 @@ end
 
 def ask_admin_close
   puts('Введіть Id лоту який хочете закрити:')
+end
+
+def ask_user_to_create_bid 
+  puts('Введіть суму своєї ставки')
+end
+
+def show_invalid_lot_id
+  puts("Такого лота немає")
 end

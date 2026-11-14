@@ -1,11 +1,29 @@
 # frozen_string_literal: true
 
-def create_bid(user_bid, searched_id, current_id)
-  temp_lot = find_lot_by_id(searched_id)
-  return unless temp_lot
-  return if user_bid < temp_lot[:current_price]
+BITS_DATABASE_NAME = 'bids.yml'
 
-  temp_lot[:current_price] = user_bid
-  temp_lot[:winner_id] = current_id
-  save_all('lots.yml', temp)
+def create_bid(user_bid, lot_id, current_id)
+  lot = find_lot_by_id(lot_id)
+  bid = find_bids_by_lot_id(lot_id)
+  return unless lot
+  current_price = max_bids_price(bid, lot)
+  return if user_bid <= current_price.to_i
+  new_bid = {
+    lot_id: lot[:id],
+    current_price: user_bid,
+    bidder_id: current_id
+  }
+  add_to_database(BITS_DATABASE_NAME, new_bid)
 end
+
+def load_bids = load_from_database(BITS_DATABASE_NAME)
+
+def find_bids_by_lot_id(lot_id)
+  load_bids.select { |bid| bid[:lot_id] == lot_id }
+end
+
+def max_bids_price(bids, lot)
+  max_bid = bids.max_by { |bid| bid[:current_price] }
+  max_bid.nil? ? lot[:start_price] : max_bid[:current_price]
+end
+

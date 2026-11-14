@@ -9,8 +9,6 @@ def create_lot(title, description, starter_price)
     name: title,
     lot_description: description,
     start_price: starter_price,
-    current_price: starter_price,
-    winner_id: nil,
     status: 'active'
   }
   add_to_database(LOTS_DATABASE_NAME, new_lot)

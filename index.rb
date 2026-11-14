@@ -20,7 +20,7 @@ def run(current_user: nil)
   elsif current_user[:role] == 'admin'
     admin_menu(current_user)
   else
-    user_menu(current_user)
+    user_menu(current_user, current_user[:id])
   end
 end
 
