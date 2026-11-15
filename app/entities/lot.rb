@@ -20,11 +20,28 @@ end
 
 def delete_lot(searched_id) = delete(LOTS_DATABASE_NAME, searched_id)
 
-def close_lot(searched_id)
+def close_lot_status(searched_id)
   lots = load_lots
-  found_lot =  lots.find { |lot| lot[:id] == searched_id }
-  if found_lot
-    found_lot[:status] = 'closed'
-    save_all(LOTS_DATABASE_NAME, lots)
-  end
+  found_lot = lots.find { |lot| lot[:id] == searched_id }
+  return unless found_lot
+
+  found_lot[:status] = 'closed'
+  save_all(LOTS_DATABASE_NAME, lots)
+end
+
+def closed_lot_statistic(searched_id)
+  lot = find_lot_by_id(searched_id)
+  return nil unless lot
+
+  bids = find_bids_by_lot_id(searched_id)
+  current_price = max_bids_price(bids, lot)
+  last_bid = bids.last
+  winner_id = last_bid ? last_bid[:bidder_id] : nil
+
+  {
+    lot: lot,
+    current_price: current_price,
+    total_bids_count: bids.count,
+    winner_id: winner_id
+  }
 end
