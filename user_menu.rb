@@ -7,7 +7,7 @@ def user_menu(user, current_id)
     case user_input
     when '1' then user_bid_menu(current_id)
     when '2' then show_bid_history(current_id)
-    when '3'then exit 
+    when '3'then exit
     end
   end
 end
@@ -34,3 +34,4 @@ def user_show_list_of_lots
     render_lots(lots)
   end
 end
+
