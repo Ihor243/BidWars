@@ -5,7 +5,7 @@ def show_guest_menu
   puts 'Оберіть дію:'
   puts '1: Зареєструватися'
   puts '2: Увійти'
-  puts('3: Змінити мову на українську')
+  puts "3: змінити мову на українську"
   puts '4: Вийти'
 end
 
@@ -17,14 +17,6 @@ def show_admin_menu(user)
   puts '3: Видалити лот'
   puts '4: закрити лот'
   puts '5: вийти'
-end
-
-def show_user_menu(user)
-  puts "Вітаю, #{user}"
-  puts 'Оберіть дію:'
-  puts '1: Зробити ставку'
-  puts '2: Переглянути статистику'
-  puts '3: вийти'
 end
 
 def show_user_menu(user)
@@ -85,4 +77,3 @@ end
 def show_invalid_lot_id
   puts('Такого лота немає')
 end
-

@@ -1,3 +1,6 @@
 en:
-  test: "Welcome to our casi... Auction!
-"
+  welcome: "Welcome to our auction"
+  menu:
+    register: "1: Register"
+    login: "2: Sign in"
+    exit: "4: exit"
