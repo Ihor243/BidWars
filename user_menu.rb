@@ -8,6 +8,7 @@ def user_menu(user, current_id)
     when '1' then user_bid_menu(current_id)
     when '2' then show_bid_history(current_id)
     when '3'then exit
+    when '4' then show_victory_menu(current_id)
     end
   end
 end

@@ -39,13 +39,13 @@ def get_user_bid_history(user_id)
   bids.map do |bid|
     lot = find_lot_by_id(bid[:lot_id])
     next unless lot
-
+    is_leader = bid[:bidder_id] == user_id
     {
       id: lot[:id],
       name: lot[:name],
       description: lot[:lot_description],
       current_price: bid[:current_price],
-      is_leader: lot[:winner_id] == user_id
+      is_leader: is_leader
     }
   end
 end
