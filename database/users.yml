@@ -1,0 +1,9 @@
+---
+- :login: Winewt
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$F.alINRinciTSDESSCOnNeBKkrGP4FpEsqBAuy7VLbzHvlraTxG8e"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$F.alINRinciTSDESSCOnNe"
+    checksum: BKkrGP4FpEsqBAuy7VLbzHvlraTxG8e
+  :id: 1

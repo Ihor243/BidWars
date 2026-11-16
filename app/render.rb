@@ -25,6 +25,7 @@ def show_user_menu(user)
   puts '1: Переглянути відкриті лоти та зробити ставку'
   puts '2: Моя статистика'
   puts '3: Вийти'
+  puts '4: Історія премог'
 end
 
 def show_open_lots

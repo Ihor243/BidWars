@@ -1,0 +1,6 @@
+---
+- :lot_id: 1
+  :current_price: 200
+  :bidder_id: 1
+  :id: 1
+  :is_leader: true
