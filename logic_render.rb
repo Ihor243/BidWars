@@ -105,15 +105,7 @@ def show_bid_history(user_id)
 end
 
 def show_victory_menu(current_id)
-  history = get_user_bid_history(current_id)
-  
+  stats = get_user_bid_stats(current_id)
 
-  puts 'Історія виграшів'
-
-  history.each_with_index do |bid|
-    binding.irb
-    puts "Назва: #{bid[:name]}"
-    puts "Ви лідер: #{bid[:is_leader] ? 'Так' : 'Ні'}"
-    puts "------------------------"
-  end
+  puts "Кількість лотів, на які ви поставили: #{stats[:total_bids_count]}, з них програно: #{stats[:lost_bids_count]}"
 end
