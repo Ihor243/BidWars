@@ -49,15 +49,3 @@ def get_user_bid_history(user_id)
     }
   end.compact
 end
-
-def get_user_bid_stats(user_id)
-  history = get_user_bid_history(user_id)
-
-  total_bids_count = history.length
-  lost_bids_count = history.count { |bid| !bid[:is_leader] }
-
-  {
-    total_bids_count: total_bids_count,
-    lost_bids_count: lost_bids_count
-  }
-end
