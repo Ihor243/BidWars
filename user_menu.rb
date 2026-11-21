@@ -15,7 +15,7 @@ end
 
 def user_bid_menu(current_id)
   user_show_list_of_lots
-  puts('Виберіть номер лота на який хочете поставити')
+  puts(I18n.t("lots.choose_lot_id"))
   user_choice = gets.chomp.strip.to_i
   choosen_lot = find_lot_by_id(user_choice)
   if choosen_lot
@@ -30,7 +30,7 @@ end
 def user_show_list_of_lots
   lots = load_lots
   if lots.empty?
-    puts('Наразі лотів немає')
+    puts(I18n.t("lots.no_lots_available"))
   else
     render_lots(lots)
   end

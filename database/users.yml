@@ -7,3 +7,37 @@
     salt: "$2a$12$F.alINRinciTSDESSCOnNe"
     checksum: BKkrGP4FpEsqBAuy7VLbzHvlraTxG8e
   :id: 1
+- :login: Igor
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$PQbFBY9qkPfWjXyNVAExd.7Q0AfX7DpiLmJIPjzQCmNSg6WEU5a3e"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$PQbFBY9qkPfWjXyNVAExd."
+    checksum: 7Q0AfX7DpiLmJIPjzQCmNSg6WEU5a3e
+  :id: 2
+- :login: Igor
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$lPeGkFprwN8q55fXiBFXo.hfK0AEXKOx5Elj51sYK7VhDDIhE5/wq"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$lPeGkFprwN8q55fXiBFXo."
+    checksum: hfK0AEXKOx5Elj51sYK7VhDDIhE5/wq
+  :id: 3
+- :login: ігор
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$RJNa5Z7XOsmeL97xrXheg.E6m2QFxC5lSBxy3/9G7dR2XOaO/I3um"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$RJNa5Z7XOsmeL97xrXheg."
+    checksum: E6m2QFxC5lSBxy3/9G7dR2XOaO/I3um
+  :id: 4
+- :id: 5
+  :login: Semen
+  :password: !ruby/string:BCrypt::Password
+    str: "$2a$12$Q4lNJIRx9sICDFjkJDFjM./oRtimTp4BZr/WdGggbPZaWiZu7G4A2"
+    version: 2a
+    cost: 12
+    salt: "$2a$12$Q4lNJIRx9sICDFjkJDFjM."
+    checksum: "/oRtimTp4BZr/WdGggbPZaWiZu7G4A2"
+  :phone_number: 380500738437
+  :role: admin

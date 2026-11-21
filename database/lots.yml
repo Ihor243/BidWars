@@ -1,6 +1,11 @@
 ---
-- :name: Гральні карти
-  :lot_description: Вінтажні гральні карти
-  :start_price: '120'
+- :name: Ps6
+  :lot_description: Gta VI
+  :start_price: '3'
+  :status: active
+  :id: 2
+- :name: Ps5
+  :lot_description: GtaVI
+  :start_price: '30001'
   :status: closed
-  :id: 1
+  :id: 3
