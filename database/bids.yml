@@ -4,3 +4,7 @@
   :bidder_id: 1
   :id: 1
   :is_leader: true
+- :lot_id: 1
+  :current_price: 300
+  :bidder_id: 1
+  :id: 2

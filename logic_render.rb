@@ -104,16 +104,14 @@ def show_bid_history(user_id)
   end
 end
 
-def show_victory_menu(current_id)
-  history = get_user_bid_history(current_id)
-  
+def get_user_bid_stats(user_id)
+  bids = find_bids_by_user_id(user_id)
 
-  puts 'Історія виграшів'
-
-  history.each_with_index do |bid|
-    binding.irb
-    puts "Назва: #{bid[:name]}"
-    puts "Ви лідер: #{bid[:is_leader] ? 'Так' : 'Ні'}"
-    puts "------------------------"
-  end
+  {
+    total_bids_count: bids.length,
+    lost_bids_count: bids.count do |bid|
+      lot_bids = find_bids_by_lot_id(bid[:lot_id])
+      lot_bids.max_by { |b| b[:current_price] }[:bidder_id] != user_id
+    end
+  }
 end
