@@ -9,7 +9,7 @@ ua:
     choose_action: "Оберіть дію:"
     greeting: "Вітаю, %{user}"
     greeting_bang: "Вітаю, %{user}!"
-    yes: "Так"
+    "yes": "Так"
     no: "Ні"
     is_leader: "Ви лідер: %{value}"
     divider: "----------------------------"

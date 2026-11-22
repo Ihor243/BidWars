@@ -9,7 +9,7 @@ en:
     choose_action: "Choose an action:"
     greeting: "Welcome, %{user}"
     greeting_bang: "Welcome, %{user}!"
-    yes: "Yes"
+    "yes": "Yes"
     no: "No"
     is_leader: "Are you leading: %{value}"
     divider: "----------------------------"
