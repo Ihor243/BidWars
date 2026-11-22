@@ -94,7 +94,6 @@ def show_bid_history(user_id)
     puts I18n.t("common.is_leader", value: leader_status)
     puts I18n.t("bid_history.page", current: current_page + 1, total: history.length)
     puts I18n.t("bid_history.divider")
-
     puts I18n.t("bid_history.next")
     puts I18n.t("bid_history.prev")
     puts I18n.t("bid_history.exit")
@@ -114,6 +113,7 @@ def show_bid_history(user_id)
   end
 end
 
+
 def show_victory_menu(current_id)
   history = get_user_bid_history(current_id)
 
@@ -127,3 +127,6 @@ def show_victory_menu(current_id)
     puts I18n.t("victory_menu.divider")
   end
 end
+
+
+

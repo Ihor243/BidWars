@@ -80,3 +80,9 @@ end
 def show_invalid_lot_id
   puts I18n.t("lots.not_found")
 end
+
+def show_victory_menu(current_id)
+  stats = get_user_bid_stats(current_id)
+
+  puts "Кількість лотів, на які ви поставили: #{stats[:total_bids_count]}, з них програно: #{stats[:lost_bids_count]}"
+end
