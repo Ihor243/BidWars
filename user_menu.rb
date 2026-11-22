@@ -32,7 +32,7 @@ def user_show_list_of_lots
   if lots.empty?
     puts(I18n.t("lots.no_lots_available"))
   else
-    render_lots(lots)
+    render_lots_table(lots)
   end
 end
 

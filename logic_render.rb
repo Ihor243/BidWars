@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
+require 'terminal-table'
+
 def render_search_lot_by_id(searched_id)
   lot = find_lot_by_id(searched_id)
   if lot.nil? || lot.empty?
-    puts I18n.t('lots.not_found')
+    puts I18n.t('lots.not_found').colorize(:red)
   else
-    puts I18n.t('lots.found')
+    puts I18n.t('lots.found').colorize(:green)
     puts I18n.t('lots.short_name', name: lot[:name])
     puts I18n.t('lots.short_desc', description: lot[:lot_description])
     puts I18n.t('lots.price', price: lot[:start_price])
@@ -13,7 +15,7 @@ def render_search_lot_by_id(searched_id)
 end
 
 def show_lot_deleted(searched_id)
-  puts I18n.t('lots.deleted', id: searched_id)
+  puts I18n.t('lots.deleted', id: searched_id).colorize(:red)
 end
 
 def show_create_bid(temp, user_bid)
@@ -23,24 +25,41 @@ def show_create_bid(temp, user_bid)
   puts I18n.t('bids.check_bid')
 end
 
-def render_lot(lot)
-  puts I18n.t('lots.name', name: lot[:name])
-  puts I18n.t('lots.short_description', description: lot[:lot_description])
-  puts I18n.t('lots.start_price', price: lot[:start_price])
-  puts I18n.t('lots.id', id: lot[:id])
+def render_lots_table(lots)
+  active_lots = lots.select { |lot| lot[:status] == 'active' }
+
+  table = Terminal::Table.new(
+    headings: [
+      I18n.t('table_headers.id'),
+      I18n.t('table_headers.name'),
+      I18n.t('table_headers.description'),
+      I18n.t('table_headers.start_price')
+    ],
+    rows: active_lots.map do |lot|
+      [
+        lot[:id],
+        lot[:name],
+        lot[:lot_description] || lot[:description],
+        lot[:start_price].to_s.colorize(:green)
+      ]
+    end
+  )
+
+  table.align_column(3, :right)
+  puts table
 end
 
 def render_lots(lots)
   lots.each do |lot|
     if lot[:status] == 'active'
       puts I18n.t('common.divider')
-      render_lot(lot)
+      render_lots_table(lot)
     end
   end
 end
 
 def render_close_lot(searched_id)
-  puts I18n.t('lots.closed', id: searched_id)
+  puts I18n.t('lots.closed', id: searched_id).colorize(:red)
 end
 
 def show_closed_lot_statistic(statistic_hash)

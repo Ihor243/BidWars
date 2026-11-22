@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'colorize'
 def guest_menu
   loop do
   show_guest_menu
@@ -9,7 +10,7 @@ def guest_menu
   when '2' then run(current_user: sign_in)
   when '3' then toggle_language
   when '4' then exit
-  else puts I18n.t("errors.invalid_choice")
+  else puts I18n.t("errors.invalid_choice").colorize(:red)
   end
 end
 end

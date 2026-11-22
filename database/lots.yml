@@ -9,3 +9,8 @@
   :start_price: '30001'
   :status: closed
   :id: 3
+- :name: ІАІВ
+  :lot_description: ВІАіва
+  :start_price: '134'
+  :status: active
+  :id: 4

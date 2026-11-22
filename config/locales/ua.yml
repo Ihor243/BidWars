@@ -99,6 +99,15 @@ ua:
     no_bids_yet: "Ставок ще немає"
     check_bid: "Перевірте вашу ставку"
 
+  table_headers:
+    id: "ID"
+    name: "Назва"
+    description: "Опис"
+    start_price: "Стартова ціна"
+    current_price: "Поточна ціна"
+    bid: "Ваша ставка"
+    status: "Статус"
+
   errors:
     check_input: "Перевірте, що ви ввели"
     invalid_choice: "Невірний вибір!"

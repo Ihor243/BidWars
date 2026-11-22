@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'colorize'
+
 def show_guest_menu
   puts I18n.t("guest_menu.welcome")
   puts I18n.t("common.choose_action")
@@ -56,11 +58,11 @@ def show_list_of_lots
 end
 
 def show_incorrect_choice
-  puts I18n.t("errors.check_input")
+  puts I18n.t("errors.check_input").colorize(:red)
 end
 
 def success_created_lot
-  puts I18n.t("lots.created")
+  puts I18n.t("lots.created").colorize(:green)
 end
 
 def ask_admin_delete

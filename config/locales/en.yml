@@ -99,6 +99,15 @@ en:
     no_bids_yet: "No bids yet"
     check_bid: "Check your bid"
 
+  table_headers:
+    id: "ID"
+    name: "Name"
+    description: "Description"
+    start_price: "Starting price"
+    current_price: "Current price"
+    bid: "Your bid"
+    status: "Status"
+
   errors:
     check_input: "Check what you entered"
     invalid_choice: "Invalid choice!"

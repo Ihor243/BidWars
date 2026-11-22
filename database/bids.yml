@@ -8,3 +8,11 @@
   :current_price: 30002
   :bidder_id: 3
   :id: 2
+- :lot_id: 2
+  :current_price: 4
+  :bidder_id: 3
+  :id: 3
+- :lot_id: 4
+  :current_price: 200000
+  :bidder_id: 2
+  :id: 4
