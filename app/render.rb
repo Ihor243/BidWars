@@ -1,82 +1,84 @@
 # frozen_string_literal: true
 
+require 'colorize'
+
 def show_guest_menu
-  puts 'Вітаємо вас на нашому аукціоні'
-  puts 'Оберіть дію:'
-  puts '1: Зареєструватися'
-  puts '2: Увійти'
-  puts "3: змінити мову на українську"
-  puts '4: Вийти'
+  puts I18n.t("guest_menu.welcome")
+  puts I18n.t("common.choose_action")
+  puts I18n.t("guest_menu.register")
+  puts I18n.t("guest_menu.login")
+  puts I18n.t("guest_menu.switch_lang")
+  puts I18n.t("guest_menu.exit")
 end
 
 def show_admin_menu(user)
-  puts "Вітаю, #{user}"
-  puts 'Оберіть дію:'
-  puts '1: Створити лот'
-  puts '2: Переглянути список лотів'
-  puts '3: Видалити лот'
-  puts '4: закрити лот'
-  puts '5: вийти'
+  puts I18n.t("common.greeting", user: user)
+  puts I18n.t("common.choose_action")
+  puts I18n.t("admin_menu.create_lot")
+  puts I18n.t("admin_menu.list_lots")
+  puts I18n.t("admin_menu.delete_lot")
+  puts I18n.t("admin_menu.close_lot")
+  puts I18n.t("admin_menu.exit")
 end
 
 def show_user_menu(user)
-  puts "Вітаю, #{user}!"
-  puts 'Оберіть дію:'
-  puts '1: Переглянути відкриті лоти та зробити ставку'
-  puts '2: Моя статистика'
-  puts '3: Вийти'
-  puts '4: Історія премог'
+  puts I18n.t("common.greeting_bang", user: user)
+  puts I18n.t("common.choose_action")
+  puts I18n.t("user_menu.view_and_bid")
+  puts I18n.t("user_menu.my_stats")
+  puts I18n.t("user_menu.exit")
+  puts I18n.t("user_menu.victory_history")
 end
 
 def show_open_lots
-  puts "Лот № #{lot_id}, #{lot_name}"
+  puts I18n.t("open_lots.header", id: lot_id, name: lot_name)
   puts lot_description
-  puts "Остання ставка: #{lot_price} грн"
-  puts 'Оберіть дію:'
-  puts '1: Поставити'
-  puts '2: Далі'
-  puts '3: Назад'
-  puts '4: Вийти'
+  puts I18n.t("open_lots.last_bid", price: lot_price)
+  puts I18n.t("common.choose_action")
+  puts I18n.t("open_lots.place_bid")
+  puts I18n.t("open_lots.next")
+  puts I18n.t("open_lots.prev")
+  puts I18n.t("open_lots.exit")
 end
 
 def render_lot_name
-  puts("Введіть ім'я лоту:")
+  puts I18n.t("lots.enter_name")
 end
 
 def render_lot_description
-  puts('Введіть опис лоту:')
+  puts I18n.t("lots.enter_description")
 end
 
 def render_lot_starter_price
-  puts('Введіть стартові ціну лота у грн:')
+  puts I18n.t("lots.enter_start_price")
 end
 
 def show_list_of_lots
-  puts('Введіть Id лоту:')
+  puts I18n.t("lots.enter_id")
 end
 
 def show_incorrect_choice
-  puts('Перевірте що ви ввели')
+  puts I18n.t("errors.check_input").colorize(:red)
 end
 
 def success_created_lot
-  puts 'Ви успішно створили лот'
+  puts I18n.t("lots.created").colorize(:green)
 end
 
 def ask_admin_delete
-  puts('Введіть Id лоту який хочете видалити:')
+  puts I18n.t("lots.ask_delete_id")
 end
 
 def ask_admin_close
-  puts('Введіть Id лоту який хочете закрити:')
+  puts I18n.t("lots.ask_close_id")
 end
 
 def ask_user_to_create_bid
-  puts('Введіть суму своєї ставки')
+  puts I18n.t("bids.enter_amount")
 end
 
 def show_invalid_lot_id
-  puts('Такого лота немає')
+  puts I18n.t("lots.not_found")
 end
 
 def show_victory_menu(current_id)

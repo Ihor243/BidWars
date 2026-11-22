@@ -3,4 +3,111 @@ en:
   menu:
     register: "1: Register"
     login: "2: Sign in"
-    exit: "4: exit"
+    exit: "4: Exit"
+
+  common:
+    choose_action: "Choose an action:"
+    greeting: "Welcome, %{user}"
+    greeting_bang: "Welcome, %{user}!"
+    "yes": "Yes"
+    no: "No"
+    is_leader: "Are you leading: %{value}"
+    divider: "----------------------------"
+
+  guest_menu:
+    welcome: "Welcome to our auction"
+    register: "1: Register"
+    login: "2: Sign in"
+    switch_lang: "3: Change language to Ukrainian"
+    exit: "4: Exit"
+
+  auth:
+    choose_login: "Choose a login"
+    choose_password: "Choose a password:"
+    registered: "You have successfully registered"
+    enter_login: "Enter your login"
+    enter_password: "Enter your password"
+    not_found: "User with this login and password was not found"
+    logged_in: "You have successfully signed in!"
+
+  admin_menu:
+    create_lot: "1: Create lot"
+    list_lots: "2: View list of lots"
+    delete_lot: "3: Delete lot"
+    close_lot: "4: Close lot"
+    exit: "5: Exit"
+
+  user_menu:
+    view_and_bid: "1: View open lots and place a bid"
+    my_stats: "2: My statistics"
+    exit: "3: Exit"
+    victory_history: "4: Victory history"
+
+  open_lots:
+    header: "Lot #%{id}, %{name}"
+    last_bid: "Last bid: %{price} UAH"
+    place_bid: "1: Place bid"
+    next: "2: Next"
+    prev: "3: Back"
+    exit: "4: Exit"
+
+  lots:
+    not_found: "Lot not found"
+    found: "Lot found:"
+    short_name: "Name: %{name}"
+    short_desc: "Description: %{description}"
+    name: "Lot name: %{name}"
+    short_description: "Short lot description: %{description}"
+    start_price: "Starting price: %{price}"
+    price: "Price: %{price}"
+    id: "Lot number: %{id}"
+    deleted: "Lot with ID: %{id} successfully deleted"
+    closed: "Lot with ID: %{id} successfully closed"
+    enter_name: "Enter lot name:"
+    enter_description: "Enter lot description:"
+    enter_start_price: "Enter starting lot price in UAH:"
+    enter_id: "Enter lot ID:"
+    created: "You have successfully created a lot"
+    ask_delete_id: "Enter the lot ID you want to delete:"
+    ask_close_id: "Enter the lot ID you want to close:"
+    last_price: "Last price: %{price}"
+    total_bids: "Total bids: %{count}"
+    winner_id: "Winner is user with ID: %{id}"
+    no_bids_on_lot: "No one has bid on this lot yet"
+    choose_lot_id: "Choose the lot number you want to bid on"
+    no_lots_available: "There are no lots available right now"
+
+  bid_history:
+    empty: "Bid history is empty."
+    title: "========== BID HISTORY =========="
+    divider: "=================================="
+    lot_id: "Lot ID: %{id}"
+    name: "Name: %{name}"
+    description: "Description: %{description}"
+    your_bid: "Your bid: %{price}"
+    page: "Bid %{current} of %{total}"
+    next: "1. Next"
+    prev: "2. Back"
+    exit: "3. Exit"
+
+  victory_menu:
+    title: "Victory history"
+    divider: "------------------------"
+
+  bids:
+    enter_amount: "Enter your bid"
+    no_bids_yet: "No bids yet"
+    check_bid: "Check your bid"
+
+  table_headers:
+    id: "ID"
+    name: "Name"
+    description: "Description"
+    start_price: "Starting price"
+    current_price: "Current price"
+    bid: "Your bid"
+    status: "Status"
+
+  errors:
+    check_input: "Check what you entered"
+    invalid_choice: "Invalid choice!"

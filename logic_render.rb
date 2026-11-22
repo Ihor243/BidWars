@@ -1,65 +1,74 @@
 # frozen_string_literal: true
 
+require 'terminal-table'
+
 def render_search_lot_by_id(searched_id)
   lot = find_lot_by_id(searched_id)
   if lot.nil? || lot.empty?
-    puts('Такого лота немає')
+    puts I18n.t('lots.not_found').colorize(:red)
   else
-    puts('Лот знайдено:')
-    puts "Назва: #{lot[:name]}"
-    puts "Опис: #{lot[:lot_description]}"
-    puts "Ціна: #{lot[:start_price]}"
+    puts I18n.t('lots.found').colorize(:green)
+    puts I18n.t('lots.short_name', name: lot[:name])
+    puts I18n.t('lots.short_desc', description: lot[:lot_description])
+    puts I18n.t('lots.price', price: lot[:start_price])
   end
 end
 
-def show_parse(show_lot)
-  puts('----------------------------')
-  puts('Не знайшли такий лот') if show_lot.empty? || show_lot.nil?
-  puts("Назва лоту: #{show_lot[:name]}")
-  puts("Короткий опис лоту: #{show_lot[:lot_description]}")
-  puts("Стартова ціна лоту: #{show_lot[:start_price]}")
-  # puts("Переможець: #{[:winner_login]}")
-  puts("ID лоту: #{show_lot[:id]}")
-end
-
 def show_lot_deleted(searched_id)
-  puts "Лот з Id: #{searched_id}, Успішно видалено"
+  puts I18n.t('lots.deleted', id: searched_id).colorize(:red)
 end
 
 def show_create_bid(temp, user_bid)
-  puts('Ставок ще немає') if temp.nil? || temp.empty?
+  puts I18n.t('bids.no_bids_yet') if temp.nil? || temp.empty?
   return unless user_bid <= temp[:current_price]
 
-  puts('Перевірте вашу ставку')
+  puts I18n.t('bids.check_bid')
 end
 
-def render_lot(lot)
-  puts("Назва лоту: #{lot[:name]}")
-  puts("Короткий опис лоту: #{lot[:lot_description]}")
-  puts("Стартова ціна лоту: #{lot[:start_price]}")
-  puts("Номер лоту: #{lot[:id]}")
+def render_lots_table(lots)
+  active_lots = lots.select { |lot| lot[:status] == 'active' }
+
+  table = Terminal::Table.new(
+    headings: [
+      I18n.t('table_headers.id'),
+      I18n.t('table_headers.name'),
+      I18n.t('table_headers.description'),
+      I18n.t('table_headers.start_price')
+    ],
+    rows: active_lots.map do |lot|
+      [
+        lot[:id],
+        lot[:name],
+        lot[:lot_description] || lot[:description],
+        lot[:start_price].to_s.colorize(:green)
+      ]
+    end
+  )
+
+  table.align_column(3, :right)
+  puts table
 end
 
 def render_lots(lots)
   lots.each do |lot|
     if lot[:status] == 'active'
-      puts('----------------------------')
-      render_lot(lot)
+      puts I18n.t('common.divider')
+      render_lots_table(lot)
     end
   end
 end
 
 def render_close_lot(searched_id)
-  puts "Лот з Id: #{searched_id}, Успішно закрито"
+  puts I18n.t('lots.closed', id: searched_id).colorize(:red)
 end
 
 def show_closed_lot_statistic(statistic_hash)
-  puts("Остання ціна: #{statistic_hash[:current_price]}")
-  puts("Усього ставок: #{statistic_hash[:total_bids_count]}")
+  puts I18n.t('lots.last_price', price: statistic_hash[:current_price])
+  puts I18n.t('lots.total_bids', count: statistic_hash[:total_bids_count])
   if statistic_hash[:winner_id]
-    puts("Переможець юзер з ID: #{statistic_hash[:winner_id]}")
+    puts I18n.t('lots.winner_id', id: statistic_hash[:winner_id])
   else
-    puts('Ніхто не ставив на цей лот')
+    puts I18n.t('lots.no_bids_on_lot')
   end
 end
 
@@ -67,7 +76,7 @@ def show_bid_history(user_id)
   history = get_user_bid_history(user_id)
 
   if history.empty?
-    puts 'Історія ставок порожня.'
+    puts I18n.t("bid_history.empty")
     return
   end
 
@@ -75,19 +84,19 @@ def show_bid_history(user_id)
 
   loop do
     bid = history[current_page]
+    leader_status = bid[:is_leader] ? I18n.t("common.yes") : I18n.t("common.no")
 
-    puts '========== ІСТОРІЯ СТАВОК =========='
-    puts "ID лота: #{bid[:id]}"
-    puts "Назва: #{bid[:name]}"
-    puts "Опис: #{bid[:description]}"
-    puts "Ваша ставка: #{bid[:current_price]}"
-    puts "Ви лідер: #{bid[:is_leader] ? 'Так' : 'Ні'}"
-    puts "Ставка #{current_page + 1} з #{history.length}"
-    puts '===================================='
-
-    puts '1. Далі'
-    puts '2. Назад'
-    puts '3. Вийти'
+    puts I18n.t("bid_history.title")
+    puts I18n.t("bid_history.lot_id", id: bid[:id])
+    puts I18n.t("bid_history.name", name: bid[:name])
+    puts I18n.t("bid_history.description", description: bid[:description])
+    puts I18n.t("bid_history.your_bid", price: bid[:current_price])
+    puts I18n.t("common.is_leader", value: leader_status)
+    puts I18n.t("bid_history.page", current: current_page + 1, total: history.length)
+    puts I18n.t("bid_history.divider")
+    puts I18n.t("bid_history.next")
+    puts I18n.t("bid_history.prev")
+    puts I18n.t("bid_history.exit")
 
     choice = gets.chomp.to_i
 
@@ -99,19 +108,25 @@ def show_bid_history(user_id)
     when 3
       break
     else
-      puts 'Невірний вибір!'
+      puts I18n.t("errors.invalid_choice")
     end
   end
 end
 
-def get_user_bid_stats(user_id)
-  bids = find_bids_by_user_id(user_id)
 
-  {
-    total_bids_count: bids.length,
-    lost_bids_count: bids.count do |bid|
-      lot_bids = find_bids_by_lot_id(bid[:lot_id])
-      lot_bids.max_by { |b| b[:current_price] }[:bidder_id] != user_id
-    end
-  }
+def show_victory_menu(current_id)
+  history = get_user_bid_history(current_id)
+
+  puts I18n.t("victory_menu.title")
+
+  history.each_with_index do |bid|
+    leader_status = bid[:is_leader] ? I18n.t("common.yes") : I18n.t("common.no")
+
+    puts I18n.t("bid_history.name", name: bid[:name])
+    puts I18n.t("common.is_leader", value: leader_status)
+    puts I18n.t("victory_menu.divider")
+  end
 end
+
+
+

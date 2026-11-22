@@ -49,3 +49,15 @@ def get_user_bid_history(user_id)
     }
   end.compact
 end
+
+def get_user_bid_stats(user_id)
+  bids = find_bids_by_user_id(user_id)
+
+  {
+    total_bids_count: bids.length,
+    lost_bids_count: bids.count do |bid|
+      lot_bids = find_bids_by_lot_id(bid[:lot_id])
+      lot_bids.max_by { |b| b[:current_price] }[:bidder_id] != user_id
+    end
+  }
+end

@@ -4,3 +4,110 @@ ua:
     register: "1: Зареєструватися"
     login: "2: Увійти"
     exit: '4: Вийти'
+
+  common:
+    choose_action: "Оберіть дію:"
+    greeting: "Вітаю, %{user}"
+    greeting_bang: "Вітаю, %{user}!"
+    "yes": "Так"
+    no: "Ні"
+    is_leader: "Ви лідер: %{value}"
+    divider: "----------------------------"
+
+  guest_menu:
+    welcome: "Вітаємо вас на нашому аукціоні"
+    register: "1: Зареєструватися"
+    login: "2: Увійти"
+    switch_lang: "3: Change language to English"
+    exit: "4: Вийти"
+
+  auth:
+    choose_login: "Придумайте логін"
+    choose_password: "Придумайте пароль:"
+    registered: "Ви успішно зареєструвались"
+    enter_login: "Введіть ваш логін"
+    enter_password: "Введіть ваш пароль"
+    not_found: "Користувача з таким логіном і паролем не знайдено"
+    logged_in: "Ви успішно увійшли!"
+
+  admin_menu:
+    create_lot: "1: Створити лот"
+    list_lots: "2: Переглянути список лотів"
+    delete_lot: "3: Видалити лот"
+    close_lot: "4: закрити лот"
+    exit: "5: вийти"
+
+  user_menu:
+    view_and_bid: "1: Переглянути відкриті лоти та зробити ставку"
+    my_stats: "2: Моя статистика"
+    exit: "3: Вийти"
+    victory_history: "4: Історія перемог"
+
+  open_lots:
+    header: "Лот № %{id}, %{name}"
+    last_bid: "Остання ставка: %{price} грн"
+    place_bid: "1: Поставити"
+    next: "2: Далі"
+    prev: "3: Назад"
+    exit: "4: Вийти"
+
+  lots:
+    not_found: "Такого лота немає"
+    found: "Лот знайдено:"
+    short_name: "Назва: %{name}"
+    short_desc: "Опис: %{description}"
+    name: "Назва лоту: %{name}"
+    short_description: "Короткий опис лоту: %{description}"
+    start_price: "Стартова ціна лоту: %{price}"
+    price: "Ціна: %{price}"
+    id: "Номер лоту: %{id}"
+    deleted: "Лот з Id: %{id}, Успішно видалено"
+    closed: "Лот з Id: %{id}, Успішно закрито"
+    enter_name: "Введіть ім'я лоту:"
+    enter_description: "Введіть опис лоту:"
+    enter_start_price: "Введіть стартову ціну лота у грн:"
+    enter_id: "Введіть Id лоту:"
+    created: "Ви успішно створили лот"
+    ask_delete_id: "Введіть Id лоту який хочете видалити:"
+    ask_close_id: "Введіть Id лоту який хочете закрити:"
+    last_price: "Остання ціна: %{price}"
+    total_bids: "Усього ставок: %{count}"
+    winner_id: "Переможець юзер з ID: %{id}"
+    no_bids_on_lot: "Ніхто не ставив на цей лот"
+    choose_lot_id: "Виберіть номер лота на який хочете поставити"
+    no_lots_available: "Наразі лотів немає"
+
+  bid_history:
+    empty: "Історія ставок порожня."
+    title: "========== ІСТОРІЯ СТАВОК =========="
+    divider: "===================================="
+    lot_id: "ID лота: %{id}"
+    name: "Назва: %{name}"
+    description: "Опис: %{description}"
+    your_bid: "Ваша ставка: %{price}"
+    page: "Ставка %{current} з %{total}"
+    next: "1. Далі"
+    prev: "2. Назад"
+    exit: "3. Вийти"
+
+  victory_menu:
+    title: "Історія виграшів"
+    divider: "------------------------"
+
+  bids:
+    enter_amount: "Введіть вашу ставку"
+    no_bids_yet: "Ставок ще немає"
+    check_bid: "Перевірте вашу ставку"
+
+  table_headers:
+    id: "ID"
+    name: "Назва"
+    description: "Опис"
+    start_price: "Стартова ціна"
+    current_price: "Поточна ціна"
+    bid: "Ваша ставка"
+    status: "Статус"
+
+  errors:
+    check_input: "Перевірте, що ви ввели"
+    invalid_choice: "Невірний вибір!"

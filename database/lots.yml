@@ -1,7 +1,0 @@
----
-- :name: Гральні карти
-  :lot_description: Вінтажні гральні карти
-  :start_price: '120'
-  :status: closed
-  :id: 1
-  :is_leader: true
